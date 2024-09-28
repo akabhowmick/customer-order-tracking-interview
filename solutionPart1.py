@@ -16,3 +16,7 @@ customer_expenditure.rename(columns={"total_expenditure": "total_spent"}, inplac
 
 # Output the result of all customers
 print(customer_expenditure)
+
+# Sort customers by total_spent in descending order and get the top 5 customers
+top_customers = customer_expenditure.sort_values(by='total_spent', ascending=False).head(5)
+print(top_customers)
