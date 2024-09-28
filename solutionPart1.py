@@ -5,10 +5,10 @@ import pandas as pd
 # Read data
 orders_df = pd.read_csv("orders.csv")
 
-# Calculate total expenditure for each customer and add a new column "total_spent" to the DataFrame
+# Calculate total expenditure for each order
 orders_df["total_expenditure"] = orders_df["quantity"] * orders_df["price_per_unit"]
 
-# Convert DataFrame to list of dictionaries
+# Group by customer_id and calculate total expenditure per customer
 customer_expenditure = (
     orders_df.groupby("customer_id")["total_expenditure"].sum().reset_index()
 )
