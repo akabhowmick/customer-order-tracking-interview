@@ -14,10 +14,6 @@ orders_df = orders_df[orders_df['customer_id'] != 'INVALID_ID']
 customer_order_count = orders_df.groupby('customer_id')['order_id'].count().reset_index()
 customer_order_count.rename(columns={'order_id': 'order_count'}, inplace=True)
 
-# Check the customer order count DataFrame
-print("\nCustomer Order Count DataFrame:")
-print(customer_order_count)
-
 # Find the maximum number of orders
 if not customer_order_count.empty:
     max_orders = customer_order_count['order_count'].max()
